@@ -51,5 +51,5 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: pip-check-{{env.GITHUB_RUN_NUMBER}}.txt
+          name: pip-check-${{env.GITHUB_RUN_NUMBER}}.txt
           path: pip-check.txt
