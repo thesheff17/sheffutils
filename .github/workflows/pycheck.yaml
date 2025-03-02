@@ -44,10 +44,11 @@ jobs:
         run: pytest --cov=./ --cov-report=xml:coverage.xml
 
       - name: Run pip check
-        run: pip-check -a > pip-check.txt
+        run: |
+          pip-check -a > pip-check.txt
+          cat pip-check.txt
 
       - name: upload pip-check.txt
         uses: actions/upload-artifact@v4
         with:
           name: pip-check.txt
-          path: pip-check.txt
