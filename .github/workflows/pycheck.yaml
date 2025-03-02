@@ -39,7 +39,6 @@ jobs:
           pip install pytest pytest-cov pip-check
           echo "$VIRTUAL_ENV/bin" >> $GITHUB_PATH
           echo "VIRTUAL_ENV=$VIRTUAL_ENV" >> $GITHUB_ENV
-          echo "BUILD_TIMESTAMP=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_ENV
       
       - name: Run pytest with coverage
         run: pytest --cov=./ --cov-report=xml:coverage.xml
@@ -49,8 +48,7 @@ jobs:
           pip-check -a > pip-check.txt
           cat pip-check.txt
 
-      - name: upload pip-check.txt
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: "pip-check-{{ env.BUILD_TIMESTAMP }}.txt"
+          name: pip-check.txt
           path: pip-check.txt
