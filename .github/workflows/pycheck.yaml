@@ -50,5 +50,5 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: pip-check.txt
+          name: pip-check-{{python-version}}.txt
           path: pip-check.txt
