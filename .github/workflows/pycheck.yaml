@@ -49,7 +49,15 @@ jobs:
           pip-check -a >> pip-check.txt
           cat pip-check.txt
 
+      steps:
+      - name: Generate artifact name
+        id: generate-name
+        run: |
+          echo "::set-output name=artifact::${{ github.event.repository.name }}.${{ github.ref_name }}.${{ github.run_id }}.zip"
+
+
+
       - uses: actions/upload-artifact@v4
         with:
-          name: pip-check-${{env.GITHUB_RUN_NUMBER}}.txt
+          name: ${{ steps.generate-name.outputs.artifact }}
           path: pip-check.txt
