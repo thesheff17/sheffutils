@@ -45,10 +45,11 @@ jobs:
 
       - name: Run pip check
         run: |
-          pip-check -a > pip-check.txt
+          python -V > pip-check.txt
+          pip-check -a >> pip-check.txt
           cat pip-check.txt
 
       - uses: actions/upload-artifact@v4
         with:
-          name: pip-check-{{python-version}}.txt
+          name: pip-check-{{env.GITHUB_RUN_NUMBER}}.txt
           path: pip-check.txt
