@@ -32,9 +32,3 @@ jobs:
 
       - name: Run pytest with coverage
         run: pytest --cov=./ --cov-report=xml:coverage.xml
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3 #optional, uploads coverage to codecov.io
-        with:
-          flags: py${{ matrix.python-version }}
-          fail_ci_if_error: true
