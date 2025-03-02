@@ -52,9 +52,9 @@ jobs:
       - name: Generate artifact name
         id: generate-name
         run: |
-          the_secret=$((RANDOM))
-          echo "::add-mask::$the_secret"
-          echo "filename=$the_secret" >> "$GITHUB_OUTPUT"
+          value1=$(python3 -V | awk '{print $2}' | sed 's/\./-/g')
+          echo "::add-mask::$value1"
+          echo "filename=$value1" >> "$GITHUB_OUTPUT"
 
       - uses: actions/upload-artifact@v4
         with:
