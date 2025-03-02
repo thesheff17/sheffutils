@@ -4,8 +4,13 @@
 
 The idea behind this is a single python file as a util.
 
-You should be able to do:
+Get the `sheffutils.py` file:
 ```python3
+wget https://raw.githubusercontent.com/thesheff17/sheffutils/refs/heads/main/sheffutils.py
+```
+
+Now you can test the script.
+```python
 import sheffutils
 sheffutils.hello_world()
 ```
