@@ -12,10 +12,14 @@ from datetime import datetime
 # to fix this message. I only want to manage 1 utils file.
 try:
     import boto
+    import boto3
     import requests
+    import flask
 except ModuleNotFoundError as f:
     print ({f})
-    print ("pip module(s) not found...")
+    print ("pip module(s) not found.  Exiting script.")
+    print ("Please read README.md to create virtualenv.")
+    sys.exit(1)
 except Exception as e:
     print ("something else went wrong...")
     sys.exit(1)
@@ -23,9 +27,10 @@ except Exception as e:
 ######################################
 #                                    #
 # basic def to manage terminal stuff #
+# namespace: terminal_               #
 #                                    #
 ######################################
-def clear_terminal():
+def terminal_clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 ######################################
@@ -35,7 +40,7 @@ def clear_terminal():
 ######################################
 def get_timestamp():
     now = datetime.now()
-    formatted_date = now.strftime("%Y-%m-%d-%H-%M-%S")
+    formatted_date = now.strftime("%Y-%m-%d-%H-%M-%S-%f")
     return formatted_date
 
 def hello_world():
