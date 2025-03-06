@@ -11,7 +11,6 @@ from datetime import datetime
 # build off requirements.txt to build a virtualenv
 # to fix this message. I only want to manage 1 utils file.
 try:
-    import boto
     import boto3
     import requests
     import flask
