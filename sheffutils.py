@@ -35,7 +35,7 @@ except Exception as e:
 def terminal_clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def create_checkboxes(options):
+def terminal_create_checkboxes(options):
     """
     Creates a simple checkbox-like interface in the console, allowing ranges.
 
@@ -113,6 +113,7 @@ def run_command(command, output_file):
 # basic def to random things I need  #
 #                                    #
 ######################################
+
 def get_timestamp():
     now = datetime.now()
     formatted_date = now.strftime("%Y-%m-%d-%H-%M-%S-%f")
@@ -124,13 +125,19 @@ def hello_world():
     print (f"python version: {sys.version}")
     return "hello world"
 
+######################################
+#                                    #
+# ollama stuff                       #
+# namespace: ollama_                 #
+#                                    #
+######################################
+
 @dataclass
 class Ollamalist:
     name: str
     id: str
     size: str
     modified: str
-    # modefile: str
 
 def ollama_list_read(file1="text/ollama-list.txt"):
     f = open(file1, "r")

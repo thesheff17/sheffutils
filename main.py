@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     # example of using checkboxes for tools
     options = ["Option 1", "Option 2", "Option 3", "Option 4"]
-    selected_options = sheffutils.create_checkboxes(options)
+    selected_options = sheffutils.terminal_create_checkboxes(options)
 
     print("\nSelected options:")
     for option, checked in selected_options.items():
