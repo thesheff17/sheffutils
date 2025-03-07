@@ -9,7 +9,7 @@ import zipfile
 # 3rd party imports
 import sheffutils
 
-class TestDateFormat(unittest.TestCase):
+class TestSheffUtils(unittest.TestCase):
     def test_hello_world(self):
         assert "hello world" == sheffutils.hello_world()
 
