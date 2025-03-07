@@ -175,6 +175,7 @@ cython_debug/
 
 # ignore the files we generate
 text/*
+test/my_archive.zip
 
 # ignore vscode file
 settings.json

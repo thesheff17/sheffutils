@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-import os
-import sys
-from datetime import datetime
-import subprocess as sb
 from dataclasses import dataclass
+from datetime import datetime
 from typing import List
+import os
+import subprocess as sb
+import sys
+import zipfile
 
 
 # this block help manages 3rd party imports
@@ -124,6 +125,29 @@ def hello_world():
     print (f"timestamp: {get_timestamp()}")
     print (f"python version: {sys.version}")
     return "hello world"
+
+def zip_files(file_list, destination_zip):
+    """
+    Zips a list of files into a single zip archive.
+
+    Args:
+        file_list: A list of file paths to be zipped.
+        destination_zip: The path to the output zip file.
+    """
+    try:
+        with zipfile.ZipFile(destination_zip, 'w', zipfile.ZIP_DEFLATED) as zipf:
+            for file in file_list:
+                if os.path.isfile(file): # check if file exists
+                    zipf.write(file, os.path.basename(file)) # write the file into the zip, keeping only the filename
+                else:
+                    print(f"Warning: File not found: {file}")
+
+        print(f"Successfully zipped files to: {destination_zip}")
+        return True
+
+    except Exception as e:
+        print(f"An error occurred during zipping: {e}")
+
 
 ######################################
 #                                    #

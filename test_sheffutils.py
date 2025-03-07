@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 # standard library imports
+import os
 import re
 import unittest
+import zipfile
 
 # 3rd party imports
 import sheffutils
@@ -24,3 +26,17 @@ class TestDateFormat(unittest.TestCase):
         self.assertTrue(text1[0].id == "baf6a787fdff")
         self.assertTrue(text1[0].size == '1.3 GB', msg=f"{text1[0].size}")
         self.assertTrue(text1[0].modified == "3 weeks ago", msg=f"{text1[0].modified}")
+
+    def test_zip_files(self):
+        destination = "test/my_archive.zip"
+        if os.path.isfile(destination):
+            os.remove(destination)
+        files_to_zip = ["test/file1.txt", "test/file2.txt"]
+       
+        c1 = sheffutils.zip_files(files_to_zip, destination)
+        self.assertTrue(c1)
+
+        with zipfile.ZipFile(destination, 'r') as zipf:
+            file_list = zipf.namelist()
+        
+        self.assertTrue(files_to_zip, file_list)
