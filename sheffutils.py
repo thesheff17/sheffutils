@@ -86,10 +86,7 @@ def ollama_list_read(file1="text/ollama-list.txt"):
     f = open(file1, "r")
     text1 = f.readlines()
     
-    # lines = text1.strip().split('\n')[1:]
-
-    # Initialize an empty list to store the data entries
-    data_entries = []
+    data_entries = [] # store entries in a list
 
     # Loop through each line and create a DataEntry instance
     for line in text1[1:]:
@@ -105,6 +102,7 @@ def ollama_list_read(file1="text/ollama-list.txt"):
 
     return data_entries
 
+    # example of looping over the data
     # Print the parsed data entries
     # for entry in data_entries:
     #    print(entry)
