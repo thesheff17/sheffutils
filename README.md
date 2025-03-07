@@ -61,5 +61,13 @@ echo "--artifact-server-path $HOME/.act" >> $HOME/.actrc\n
 
 now on the left side of vscode you should be able to click play on the Workflows and the jobs should run and pass.  It will also dump artifacts into `$HOME/.actrc/<jobNumber>/<python-version>/*.zip`
 
+## How do I handle versions, upgrades, supporting previous versions of this script?
+
+I won't release any versions or have any official releases of this package/script.  You should know what you are running if you are using this code.  If you want to assign a version to the `sheffutils.py` file at the time of download you can.  I will do my best to not break backwards compatibility of anything I write.
+
+I would much rather maintain multiple `def` doing slightly different things even if that means duplicating some code.  The reason for this is because it will maintain backwards compatibility for users running this script while also testing new code at the same time.  
+ 
+ ## How can I add feature or fix a problem?
+If you know how to fix it please make a pull request. If not please log an issue [here.](https://github.com/thesheff17/sheffutils/issues)
 ## Do you use AI to write code? 
 yes if you look at some of the tools you can see stuff is wrapped around `ollama` commands.  All code should have unit tests defined in `test_sheffutils.py`
