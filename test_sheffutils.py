@@ -24,4 +24,3 @@ class TestDateFormat(unittest.TestCase):
         self.assertTrue(text1[0].id == "baf6a787fdff")
         self.assertTrue(text1[0].size == '1.3 GB', msg=f"{text1[0].size}")
         self.assertTrue(text1[0].modified == "3 weeks ago", msg=f"{text1[0].modified}")
-

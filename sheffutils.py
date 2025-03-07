@@ -35,6 +35,56 @@ except Exception as e:
 def terminal_clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def create_checkboxes(options):
+    """
+    Creates a simple checkbox-like interface in the console, allowing ranges.
+
+    Args:
+        options: A list of strings representing the checkbox options.
+
+    Returns:
+        A dictionary where keys are the options and values are booleans
+        representing whether the option is checked.
+    """
+
+    checkboxes = {option: False for option in options}
+
+    while True:
+        print("\nSelect options (press Enter to confirm):")
+        for i, option in enumerate(options):
+            checked = "[x]" if checkboxes[option] else "[ ]"
+            print(f"{i + 1}. {checked} {option}")
+
+        try:
+            choice = input(
+                "Enter option number(s) or ranges (e.g., 1 3 2-4), or press Enter to finish: "
+            )
+            if not choice:
+                break  # User pressed Enter, finish selection
+
+            parts = choice.split()
+            selected_indices = []
+
+            for part in parts:
+                if "-" in part:
+                    start, end = map(int, part.split("-"))
+                    selected_indices.extend(range(start - 1, end))
+                else:
+                    selected_indices.append(int(part) - 1)
+
+            for index in selected_indices:
+                if 0 <= index < len(options):
+                    options_list = list(options)
+                    checkboxes[options_list[index]] = not checkboxes[options_list[index]]
+                else:
+                    print(f"Invalid option number: {index+1}")
+
+        except ValueError:
+            print("Invalid input. Please enter numbers or ranges.")
+
+    return checkboxes
+
+
 def run_command(command, output_file):
     """
     Run a terminal command and optionally write its output to a file.
