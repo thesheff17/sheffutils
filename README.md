@@ -60,3 +60,6 @@ echo "--artifact-server-path $HOME/.act" >> $HOME/.actrc\n
 ```
 
 now on the left side of vscode you should be able to click play on the Workflows and the jobs should run and pass.  It will also dump artifacts into `$HOME/.actrc/<jobNumber>/<python-version>/*.zip`
+
+## Do you use AI to write code? 
+yes if you look at some of the tools you can see stuff is wrapped around `ollama` commands.  All code should have unit tests defined in `test_sheffutils.py`
