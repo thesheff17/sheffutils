@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/thesheff17/sheffutils/refs/heads/main/she
 
 ## How can I support this project?
 
-[buymeacoffee.com/thesheff17](buymeacoffee.com/thesheff17)
+[buymeacoffee.com/thesheff17](https://buymeacoffee.com/thesheff17)
 
 
 ## Which python version is supported?  
@@ -37,9 +37,6 @@ hw()
 ```
 
 ## Run tests:
-
-I'm going to try and support `python 3.11.x` and up.
-
 ```python3
 pip install pytest pytest-cov
 pytest
