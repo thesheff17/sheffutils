@@ -17,3 +17,11 @@ class TestDateFormat(unittest.TestCase):
 
         # Positive test cases
         self.assertTrue(re.match(pattern, "2025-03-02-11-01-50-000000"))
+
+    def test_ollama_list(self):
+        text1 = sheffutils.ollama_list_read(file1="test/test_ollama_list.txt")
+        self.assertTrue(text1[0].name == "llama3.2:1b", msg="The ollama name did not match from the data class")
+        self.assertTrue(text1[0].id == "baf6a787fdff")
+        self.assertTrue(text1[0].size == '1.3 GB', msg=f"{text1[0].size}")
+        self.assertTrue(text1[0].modified == "3 weeks ago", msg=f"{text1[0].modified}")
+
