@@ -9,7 +9,16 @@ Get the `sheffutils.py` file:
 wget https://raw.githubusercontent.com/thesheff17/sheffutils/refs/heads/main/sheffutils.py
 ```
 
-Now you can test the script.
+## How can I support this project?
+
+[buymeacoffee.com/thesheff17](buymeacoffee.com/thesheff17)
+
+
+## Which python version is supported?  
+I'm giong to try and support python `3.11.x` and up. `pytest` must pass on each version to merge code with [github actions.](https://github.com/thesheff17/sheffutils/actions)
+
+## Usage
+
 ```python
 import sheffutils
 sheffutils.hello_world()
