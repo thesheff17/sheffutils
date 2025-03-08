@@ -1,8 +1,30 @@
 # sheffutils
 
+## prerequisite
+You should have a version of [python](https://python.org) 3.11 or newer.  You should create a virtualenv to ilsoate python3 version and pip dependencies. I usually create a directory called `.virtualenvs` in my home directory.
+
+linux/mac
+```python
+mkdir ~/.virtualenvs
+cd ~/.virtualenvs
+python3 -m venv venv
+source venv/bin/activate
+pip install -r https://raw.githubusercontent.com/thesheff17/sheffutils/refs/heads/main/requirements.txt
+```
+
+windows
+```python
+cd %HOMEPATH%
+mkdir .virtualenvs
+cd .virtualenvs
+python3 -m venv venv
+.\venv\Scripts\activate
+pip install -r https://raw.githubusercontent.com/thesheff17/sheffutils/refs/heads/main/requirements.txt
+```
+
 ## basic usage
 
-The idea behind this is a single python file as a util.
+The idea behind this is a single python file as a utility.
 
 Get the `sheffutils.py` file:
 ```python3
