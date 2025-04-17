@@ -27,6 +27,12 @@ func GetTimestampHypens() string {
 	return formattedTimestamp
 
 }
+
+func HealthCheck() bool {
+	// This function is a placeholder for a health check.
+	return true
+}
+
 func main() {
 	fmt.Println("Welcome to golang.  Please visit https://dev.go for more info.")
 

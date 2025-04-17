@@ -27,3 +27,12 @@ func TestGetTimestampHypens(t *testing.T) {
 		t.Errorf("GetTimestampHypens() returned an invalid format: %s, expected format: YYYY-MM-DD-HH-MM-SS", timestamp)
 	}
 }
+
+func TestHealthCheck(t *testing.T) {
+	v1 := HealthCheck()
+	expected := true
+
+	if v1 != expected {
+		t.Errorf("basic health check test failed v1: %v expected %v", v1, expected)
+	}
+}
