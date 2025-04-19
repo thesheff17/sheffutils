@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 	"strings"
 	"time"
 )
@@ -25,12 +26,17 @@ func GetTimestampHypens() string {
 	formattedTimestamp := strings.Join([]string{year, month, day, hour, minute, second}, "-")
 
 	return formattedTimestamp
-
 }
 
-func HealthCheck() bool {
-	// This function is a placeholder for a health check.
-	return true
+func MessageHandler(message string) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "%s", message)
+	}
+}
+
+func WebHealthCheck(w http.ResponseWriter, r *http.Request) {
+	m1 := "status: running \ntimestamp: " + GetTimestampHypens()
+	fmt.Fprintf(w, "%s", m1)
 }
 
 func main() {
@@ -38,4 +44,13 @@ func main() {
 
 	timestamp := GetTimestampHypens()
 	fmt.Println("current timestamp with hpyens: ", timestamp)
+
+	// example of passing a message through to the function handler.
+	defaultMsg := "hello world from go.dev webserver."
+	http.HandleFunc("/", MessageHandler(defaultMsg))
+
+	http.HandleFunc("/healthcheck", WebHealthCheck)
+
+	fmt.Println("Server is starting on port 8080...")
+	http.ListenAndServe(":8080", nil)
 }
